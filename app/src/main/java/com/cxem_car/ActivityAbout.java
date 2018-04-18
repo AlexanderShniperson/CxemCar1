@@ -8,23 +8,23 @@ import android.widget.TextView;
 
 public class ActivityAbout extends Activity {
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_about);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_about);
 
-		TextView tv = (TextView) findViewById(R.id.textView2);
-		tv.setText(Html.fromHtml(getString(R.string.text_about)));
-		tv.setMovementMethod(LinkMovementMethod.getInstance());
-	}
+        TextView tv = (TextView) findViewById(R.id.textView2);
+        tv.setText(Html.fromHtml(getString(R.string.text_about)));
+        tv.setMovementMethod(LinkMovementMethod.getInstance());
+    }
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-	}
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-	}
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 }

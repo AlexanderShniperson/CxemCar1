@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:screenOrientation="landscape"
     android:keepScreenOn="true" >
 
     <ImageView
@@ -90,7 +91,14 @@
           	android:layout_toRightOf="@+id/button_wheel"        
             android:text="@string/btn_mcu" />
         
-        
+        <Button
+            android:id="@+id/button_preferences"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+          	android:layout_below="@+id/button_mcu"
+            android:text="@string/btn_preferences" />
+
+
         
     </RelativeLayout>
 

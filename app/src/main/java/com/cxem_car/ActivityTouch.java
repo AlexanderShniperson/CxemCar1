@@ -23,10 +23,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class ActivityTouch extends Activity {
+public class ActivityTouch extends Activity implements OnClickListener {
 
 	private cBluetooth bl = null;
 
@@ -43,42 +44,83 @@ public class ActivityTouch extends Activity {
 	private int pwmMax;	   				// maximum value of PWM from settings (ìàêñèìàëüíîå çíà÷åíèå ØÈÌ èç íàñòðîåê)
 	private String commandLeft;			// command symbol for left motor from settings (ñèìâîë êîìàíäû ëåâîãî äâèãàòåëÿ èç íàñòðîåê)
 	private String commandRight;		// command symbol for right motor from settings (ñèìâîë êîìàíäû ïðàâîãî äâèãàòåëÿ èç íàñòðîåê)
-	private String commandHorn;			// command symbol for optional command from settings (for example - horn) (ñèìâîë êîìàíäû äëÿ äîï. êàíàëà (çâóêîâîé ñèãíàë) èç íàñòðîåê)
+    private String command1, command2, command3, command4;            // command symbol for optional command from settings (for example - horn) (ñèìâîë êîìàíäû äëÿ äîï. êàíàëà (çâóêîâîé ñèãíàë) èç íàñòðîåê)
+    private ToggleButton btnCmd1, btnCmd2, btnCmd3, btnCmd4;
 	private String cmdSendL,cmdSendR;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_touch);
 		MyView v1 = new MyView(this);
-		//setContentView(new MyView(this));
-		setContentView(v1);
+        addContentView(v1, new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT));
 
 		address = (String) getResources().getText(R.string.default_MAC);
 		xRperc = Integer.parseInt((String) getResources().getText(R.string.default_xRperc));
 		pwmMax = Integer.parseInt((String) getResources().getText(R.string.default_pwmMax));
 		commandLeft = (String) getResources().getText(R.string.default_commandLeft);
 		commandRight = (String) getResources().getText(R.string.default_commandRight);
-		commandHorn = (String) getResources().getText(R.string.default_commandHorn);
+        command1 = (String) getResources().getText(R.string.default_command1);
+        command2 = (String) getResources().getText(R.string.default_command2);
+        command3 = (String) getResources().getText(R.string.default_command3);
+        command4 = (String) getResources().getText(R.string.default_command4);
 
 		loadPref();
 
 		bl = new cBluetooth(this, mHandler);
 		bl.checkBTState();
 
-		final ToggleButton myLightButton = new ToggleButton(this);
-		addContentView(myLightButton, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		myLightButton.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				if(myLightButton.isChecked()){
-					if(BT_is_connect) bl.sendData(String.valueOf(commandHorn+"1\r"));
-				}else{
-					if(BT_is_connect) bl.sendData(String.valueOf(commandHorn+"0\r"));
-				}
-			}
-		});
+        btnCmd1 = this.findViewById(R.id.btnCommand1);
+        btnCmd1.setOnClickListener(this);
+        btnCmd2 = this.findViewById(R.id.btnCommand2);
+        btnCmd2.setOnClickListener(this);
+        btnCmd3 = this.findViewById(R.id.btnCommand3);
+        btnCmd3.setOnClickListener(this);
+        btnCmd4 = this.findViewById(R.id.btnCommand4);
+        btnCmd4.setOnClickListener(this);
 
 		mHandler.postDelayed(sRunnable, 600000);
 	}
+
+    public void onClick(View v) {
+        String sendCommand = "";
+        switch (v.getId()) {
+            case R.id.btnCommand1:
+                if (btnCmd1.isChecked()) {
+                    sendCommand = String.valueOf(command1 + "1\r");
+                } else {
+                    sendCommand = String.valueOf(command1 + "0\r");
+                }
+                break;
+            case R.id.btnCommand2:
+                if (btnCmd2.isChecked()) {
+                    sendCommand = String.valueOf(command2 + "1\r");
+                } else {
+                    sendCommand = String.valueOf(command2 + "0\r");
+                }
+                break;
+            case R.id.btnCommand3:
+                if (btnCmd3.isChecked()) {
+                    sendCommand = String.valueOf(command3 + "1\r");
+                } else {
+                    sendCommand = String.valueOf(command3 + "0\r");
+                }
+                break;
+            case R.id.btnCommand4:
+                if (btnCmd4.isChecked()) {
+                    sendCommand = String.valueOf(command4 + "1\r");
+                } else {
+                    sendCommand = String.valueOf(command4 + "0\r");
+                }
+                break;
+            default:
+                break;
+        }
+        if (!sendCommand.isEmpty() && BT_is_connect)
+            bl.sendData(sendCommand);
+    }
 
 	private static class MyHandler extends Handler {
 		private final WeakReference<ActivityTouch> mActivity;
@@ -316,6 +358,9 @@ public class ActivityTouch extends Activity {
 		show_Debug = mySharedPreferences.getBoolean("pref_Debug", false);
 		commandLeft = mySharedPreferences.getString("pref_commandLeft", commandLeft);
 		commandRight = mySharedPreferences.getString("pref_commandRight", commandRight);
-		commandHorn = mySharedPreferences.getString("pref_commandHorn", commandHorn);
+        command1 = mySharedPreferences.getString("pref_command1", command1);
+        command2 = mySharedPreferences.getString("pref_command2", command2);
+        command3 = mySharedPreferences.getString("pref_command3", command3);
+        command4 = mySharedPreferences.getString("pref_command4", command4);
 	}
 }

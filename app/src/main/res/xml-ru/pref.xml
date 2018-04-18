@@ -27,11 +27,29 @@
 			 android:defaultValue="@+string/default_commandRight" />
 		
 		<EditTextPreference
-			 android:key="pref_commandHorn"
-			 android:title="Дополнительная команда"
-			 android:summary="Символ дополнительной команды (к примеру звуковой сигнал)"
-			 android:defaultValue="@+string/default_commandHorn" />
+			 android:key="pref_command1"
+			 android:title="Дополнительная команда 1"
+			 android:summary="Символ дополнительной команды"
+			 android:defaultValue="@+string/default_command1" />
 		
+		<EditTextPreference
+			 android:key="pref_command2"
+			 android:title="Дополнительная команда 2"
+			 android:summary="Символ дополнительной команды"
+			 android:defaultValue="@+string/default_command2" />
+
+		<EditTextPreference
+			 android:key="pref_command3"
+			 android:title="Дополнительная команда 3"
+			 android:summary="Символ дополнительной команды"
+			 android:defaultValue="@+string/default_command3" />
+
+		<EditTextPreference
+			 android:key="pref_command4"
+			 android:title="Дополнительная команда 4"
+			 android:summary="Символ дополнительной команды"
+			 android:defaultValue="@+string/default_command4" />
+
 		<CheckBoxPreference
 			android:key="pref_Debug"
 			android:title="Отладочная информация"

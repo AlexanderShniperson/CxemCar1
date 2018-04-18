@@ -1,9 +1,8 @@
 <resources>
 
     <string name="app_name">Cxem CAR</string>
-    <string name="app_name_version">Cxem CAR 1.3</string>
-    <string name="menu_settings">Settings</string>
-    
+    <string name="app_name_version">Cxem CAR 1.4</string>
+
     <string name="title_activity_main">Cxem CAR</string>
     <string name="title_activity_accelerometer">Cxem CAR - Accelerometer control</string>
     <string name="title_activity_wheel">Cxem CAR - Virtual Wheel</string>    
@@ -21,7 +20,8 @@
     <string name="btn_touch">Touch control</string>
     <string name="btn_mcu">MCU settings</string>
     <string name="btn_about">About</string>
-    
+    <string name="btn_preferences">Settings</string>
+
     <string name="forward">forward</string>
     <string name="backward">backward</string>
     <string name="left">left</string>
@@ -48,7 +48,10 @@
     <string name="default_pwmMax">255</string>
     <string name="default_commandLeft">L</string>
     <string name="default_commandRight">R</string>
-    <string name="default_commandHorn">H</string>
+    <string name="default_command1">H</string>
+    <string name="default_command2">P</string>
+    <string name="default_command3">G</string>
+    <string name="default_command4">K</string>
     <string name="default_pwmBtnMotorLeft">255</string>
     <string name="default_pwmBtnMotorRight">255</string>
     <string name="default_xRperc">60</string>

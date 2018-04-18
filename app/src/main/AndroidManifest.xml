@@ -4,7 +4,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="16"
         android:targetSdkVersion="21" />
     
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -26,17 +26,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ActivityAccelerometer"
+            android:name="ActivityAccelerometer"
             android:label="@string/title_activity_accelerometer"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".ActivityWheel"
+            android:name="ActivityWheel"
             android:label="@string/title_activity_wheel"
             android:screenOrientation="landscape" >
         </activity>        
         <activity
-            android:name=".SetPreferenceActivity"
+            android:name=".ActivityPreferences"
             android:label="@string/title_activity_main" >
         </activity>
         <activity 

@@ -1,33 +1,101 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:keepScreenOn="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:keepScreenOn="true">
 
     <ImageView
         android:id="@+id/cxem_logo"
-        android:contentDescription="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:alpha="0.3"
+        android:contentDescription="@+id/app_name"
         android:paddingBottom="5dp"
         android:paddingRight="5dp"
         android:src="@drawable/cxemnet_logo" />
-   
-    <ToggleButton
-        android:id="@+id/LightButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:text="cmd1"
+            tools:layout_marginLeft="10dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:text="cmd2"
+            tools:layout_marginLeft="10dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="0"
+            android:text="cmd3"
+            tools:layout_marginLeft="10dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_row="0"
+            android:text="cmd4"
+            tools:layout_marginLeft="10dp" />
+
+        <ToggleButton
+            android:id="@+id/btnCommand1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            tools:layout_marginLeft="10dp" />
+
+        <ToggleButton
+            android:id="@+id/btnCommand2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            tools:layout_marginLeft="10dp" />
+
+        <ToggleButton
+            android:id="@+id/btnCommand3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_row="1"
+            tools:layout_marginLeft="10dp" />
+
+        <ToggleButton
+            android:id="@+id/btnCommand4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_row="1"
+            tools:layout_marginLeft="10dp" />
+    </GridLayout>
 
     <Button
         android:id="@+id/forward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/LightButton"
+        android:layout_above="@+id/btnCommand1"
         android:layout_centerHorizontal="true"
         android:text="@string/forward" />
 
@@ -35,7 +103,7 @@
         android:id="@+id/backward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/LightButton"
+        android:layout_below="@+id/btnCommand1"
         android:layout_centerHorizontal="true"
         android:text="@string/backward" />
 
@@ -44,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/LightButton"
+        android:layout_toLeftOf="@+id/btnCommand1"
         android:text="@string/left" />
 
     <Button
@@ -52,7 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/LightButton"
+        android:layout_toRightOf="@+id/btnCommand1"
         android:text="@string/right" />
 
 </RelativeLayout>

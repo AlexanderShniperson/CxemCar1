@@ -3,7 +3,7 @@ package com.cxem_car;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class SetPreferenceActivity extends Activity {
+public class ActivityPreferences extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
